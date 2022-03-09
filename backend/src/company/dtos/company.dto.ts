@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import {
   IsAlphanumeric,
   IsNotEmpty,
@@ -14,16 +14,18 @@ export class CreateCompanyDto {
 
   @IsAlphanumeric()
   @IsNotEmpty()
-  @ApiProperty({ description: 'Identificador unico de la empresa' })
+  @ApiProperty({ description: 'Company code' })
   readonly identificador: string;
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty({ description: 'Descripcion de la companya' })
+  @ApiProperty({ description: 'Description of company' })
   readonly description: string;
 
   @IsString()
   @IsPostalCode()
-  @ApiProperty({ description: 'Location od company' })
+  @ApiProperty({ description: 'Company postal code' })
   readonly location: string;
 }
+
+export class UpdateCompanyDto extends PartialType(CreateCompanyDto) {}
