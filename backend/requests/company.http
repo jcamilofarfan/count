@@ -22,8 +22,5 @@ PUT http://localhost:5000/company/1
 Content-Type: application/json
 
 {
-  "name": "Compañia 3",
-  "identifier": "123456789",
-  "description": "Compañia de prueba",
-  "location": "Colombia"
+  "description": "Grupo de contadores dedicados a mejorar la economia de latinoamerica"
 }
