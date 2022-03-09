@@ -8,6 +8,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { enviroments } from './enviroments';
+import { CompanyController } from './company/controllers/company.controller';
+import { CompanyService } from './company/services/company.service';
 import config from './config';
 
 @Module({
@@ -26,7 +28,7 @@ import config from './config';
     }),
     DatabaseModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, CompanyController],
+  providers: [AppService, CompanyService],
 })
 export class AppModule {}
