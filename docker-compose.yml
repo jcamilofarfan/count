@@ -27,7 +27,10 @@ services:
       - "3306:3306"
 
   backend:
-    image: jcamilofarfan/backendcount
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - ./backend:/app
@@ -35,7 +38,10 @@ services:
       - "5001:5000"
   
   frontend:
-    image: jcamilofarfan/frontendcount
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - ./frontend:/app
