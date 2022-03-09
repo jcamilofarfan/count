@@ -1,10 +1,5 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import {
-  IsAlphanumeric,
-  IsNotEmpty,
-  IsString,
-  IsPostalCode,
-} from 'class-validator';
+import { IsAlphanumeric, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateCompanyDto {
   @IsString()
@@ -15,7 +10,7 @@ export class CreateCompanyDto {
   @IsAlphanumeric()
   @IsNotEmpty()
   @ApiProperty({ description: 'Company code' })
-  readonly identificador: string;
+  readonly identifier: string;
 
   @IsString()
   @IsNotEmpty()
@@ -23,8 +18,8 @@ export class CreateCompanyDto {
   readonly description: string;
 
   @IsString()
-  @IsPostalCode()
-  @ApiProperty({ description: 'Company postal code' })
+  @IsNotEmpty()
+  @ApiProperty({ description: 'Country of company' })
   readonly location: string;
 }
 

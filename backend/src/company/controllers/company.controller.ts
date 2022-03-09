@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -24,7 +25,7 @@ export class CompanyController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get company by id' })
-  getProduct(id: number) {
+  getProduct(@Param('id', ParseIntPipe) id: number) {
     return this.companyService.findOne(id);
   }
 
@@ -36,13 +37,16 @@ export class CompanyController {
 
   @Put(':id')
   @ApiOperation({ summary: 'Update a company' })
-  updateProduct(@Param('id') id: number, @Body() payload: UpdateCompanyDto) {
+  updateProduct(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateCompanyDto,
+  ) {
     return this.companyService.update(id, payload);
   }
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a company' })
-  deleteProduct(@Param('id') id: number) {
+  deleteProduct(@Param('id', ParseIntPipe) id: number) {
     return this.companyService.remove(id);
   }
 }

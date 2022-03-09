@@ -9,7 +9,7 @@ export class Company {
   name: string;
 
   @Column({ type: 'varchar', length: 255, unique: true })
-  identificador: string;
+  identifier: string;
 
   @Column({ type: 'text' })
   description: string;
