@@ -8,8 +8,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { enviroments } from './enviroments';
-import { CompanyController } from './company/controllers/company.controller';
-import { CompanyService } from './company/services/company.service';
 import { CompanyModule } from './company/company.module';
 import config from './config';
 
@@ -30,7 +28,7 @@ import config from './config';
     DatabaseModule,
     CompanyModule,
   ],
-  controllers: [AppController, CompanyController],
-  providers: [AppService, CompanyService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
